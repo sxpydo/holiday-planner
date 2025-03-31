@@ -1,4 +1,4 @@
-package com.example.holidayplanner;
+package com.holidayplanner;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
