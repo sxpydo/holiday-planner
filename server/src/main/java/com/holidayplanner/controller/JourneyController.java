@@ -28,26 +28,20 @@ public class JourneyController {
         return "Welcome to the Holiday Planner API!";
     }
 
-    @GetMapping("/findbyid/{id}")
-    public Journey findJourneyById(@PathVariable Long id) {
-        return journeyService.findJourneyById(id);
-    }
-
-    @GetMapping("/findall")
+    @GetMapping("/journey")
     public List<Journey> findAllJourneys() {
         return journeyService.findAllJourneys();
     }
 
-    @DeleteMapping("/delete/{id}")
+    @GetMapping("/journey/{id}")
+    public Journey findJourneyById(@PathVariable Long id) {
+        return journeyService.findJourneyById(id);
+    }
+
+    @DeleteMapping("/journey/{id}")
     public String deleteJourney(@PathVariable Long id) {
         journeyService.deleteJourneyById(id);
         return "Journey with ID " + id + " has been deleted.";
-    }
-
-    @DeleteMapping("/deleteall")
-    public String deleteAllJourneys() {
-        journeyService.deleteAllJourneys();
-        return "All journeys have been deleted.";
     }
 
     @PostMapping("/calculate")
