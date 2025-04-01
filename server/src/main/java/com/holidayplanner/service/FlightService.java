@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface FlightService {
     List<Flight> findAllFlights();
-    Flight findFlightById(Long id);
+    Flight findFlightById(Integer id);
     Flight saveFlight(Flight flight);
-    void deleteFlightById(Long id);
+    void deleteFlightById(Integer id);
     void deleteAllFlights();
 }

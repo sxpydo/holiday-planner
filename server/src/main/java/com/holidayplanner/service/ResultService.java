@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface ResultService {
     List<Result> findAllResults();
-    Result findResultById(Long id);
+    Result findResultById(Integer id);
     Result saveResult(Result result);
-    void deleteResultById(Long id);
+    void deleteResultById(Integer id);
     void deleteAllResults();
 }

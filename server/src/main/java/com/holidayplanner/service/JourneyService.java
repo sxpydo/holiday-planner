@@ -5,8 +5,8 @@ import java.util.List;
 
 public interface JourneyService {
     List<Journey> findAllJourneys();
-    Journey findJourneyById(Long id);
+    Journey findJourneyById(Integer id);
     Journey saveJourney(Journey journey);
-    void deleteJourneyById(Long id);
+    void deleteJourneyById(Integer id);
     void deleteAllJourneys();
 }

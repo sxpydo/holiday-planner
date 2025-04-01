@@ -8,10 +8,10 @@ public class Result {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @Column(name = "journey_id")
-    private Long journeyId;
+    private int journeyId;
 
     @Column(name = "vehicle")
     private String vehicle;
@@ -37,7 +37,7 @@ public class Result {
     // Constructors
     public Result() {}
 
-    public Result(Long journeyId, String vehicle, double returnCost, String outboundRoute, double outboundCost, String inboundRoute, double inboundCost, double totalCost) {
+    public Result(int journeyId, String vehicle, double returnCost, String outboundRoute, double outboundCost, String inboundRoute, double inboundCost, double totalCost) {
         this.journeyId = journeyId;
         this.vehicle = vehicle;
         this.returnCost = returnCost;
@@ -49,19 +49,19 @@ public class Result {
     }
 
     // Getters and setters
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Long getJourneyId() {
+    public int getJourneyId() {
         return journeyId;
     }
 
-    public void setJourneyId(Long journeyId) {
+    public void setJourneyId(int journeyId) {
         this.journeyId = journeyId;
     }
 
