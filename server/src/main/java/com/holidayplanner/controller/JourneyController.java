@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/journeys")
+@RequestMapping("/api/journey")
 public class JourneyController {
 
     @Autowired
@@ -23,22 +23,18 @@ public class JourneyController {
     @Autowired
     private ResultService resultService;
 
-    @GetMapping("/")
-    public String home() {
-        return "Welcome to the Holiday Planner API!";
-    }
 
-    @GetMapping("/journey")
+    @GetMapping("/")
     public List<Journey> findAllJourneys() {
         return journeyService.findAllJourneys();
     }
 
-    @GetMapping("/journey/{id}")
+    @GetMapping("/{id}")
     public Journey findJourneyById(@PathVariable Integer id) {
         return journeyService.findJourneyById(id);
     }
 
-    @DeleteMapping("/journey/{id}")
+    @DeleteMapping("/{id}")
     public String deleteJourney(@PathVariable Integer id) {
         journeyService.deleteJourneyById(id);
         return "Journey with ID " + id + " has been deleted.";
