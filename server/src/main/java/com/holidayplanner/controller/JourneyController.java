@@ -6,6 +6,8 @@ import com.holidayplanner.service.JourneyService;
 import com.holidayplanner.service.CalculationService;
 import com.holidayplanner.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,6 +31,12 @@ public class JourneyController {
         return journeyService.findAllJourneys();
     }
 
+    @PostMapping("/")
+    public ResponseEntity<Journey> createJourney(@RequestBody Journey journey) {
+        Journey savedJourney = journeyService.saveJourney(journey);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedJourney);
+    }
+
     @GetMapping("/{id}")
     public Journey findJourneyById(@PathVariable Integer id) {
         return journeyService.findJourneyById(id);
@@ -41,13 +49,13 @@ public class JourneyController {
     }
 
     @PostMapping("/calculate")
-    public Result calculateJourney(@RequestBody Journey journey) {
+    public ResponseEntity<Result> calculateJourney(@RequestBody Journey journey) {
         Result result = calculationService.calculateJourneyResult(journey);
 
         // Save the journey and result
         journeyService.saveJourney(journey);
         resultService.saveResult(result); // Save the result
 
-        return result;
+        return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 }
