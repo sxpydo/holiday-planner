@@ -2,15 +2,19 @@ package com.holidayplanner.service;
 
 import com.holidayplanner.model.Journey;
 import com.holidayplanner.repository.JourneyRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JourneyServiceImpl implements JourneyService {
 
-    @Autowired
-    private JourneyRepository journeyRepository;
+    private final JourneyRepository journeyRepository;
+
+    public JourneyServiceImpl(JourneyRepository journeyRepository) {
+        this.journeyRepository = journeyRepository;
+    }
 
     @Override
     public List<Journey> findAllJourneys() {
@@ -18,8 +22,9 @@ public class JourneyServiceImpl implements JourneyService {
     }
 
     @Override
-    public Journey findJourneyById(Long id) {
-        return journeyRepository.findById(id).orElse(null);
+    public Journey findJourneyById(Integer id) {
+        Optional<Journey> journey = journeyRepository.findById(id);
+        return journey.orElseThrow(() -> new RuntimeException("Journey not found with id: " + id));
     }
 
     @Override
@@ -28,7 +33,7 @@ public class JourneyServiceImpl implements JourneyService {
     }
 
     @Override
-    public void deleteJourneyById(Long id) {
+    public void deleteJourneyById(Integer id) {
         journeyRepository.deleteById(id);
     }
 

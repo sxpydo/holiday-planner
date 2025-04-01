@@ -2,15 +2,19 @@ package com.holidayplanner.service;
 
 import com.holidayplanner.model.Result;
 import com.holidayplanner.repository.ResultRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ResultServiceImpl implements ResultService {
 
-    @Autowired
-    private ResultRepository resultRepository;
+    private final ResultRepository resultRepository;
+
+    public ResultServiceImpl(ResultRepository resultRepository) {
+        this.resultRepository = resultRepository;
+    }
 
     @Override
     public List<Result> findAllResults() {
@@ -18,8 +22,9 @@ public class ResultServiceImpl implements ResultService {
     }
 
     @Override
-    public Result findResultById(Long id) {
-        return resultRepository.findById(id).orElse(null);
+    public Result findResultById(Integer id) {
+        Optional<Result> result = resultRepository.findById(id);
+        return result.orElseThrow(() -> new RuntimeException("Result not found with id: " + id));
     }
 
     @Override
@@ -28,7 +33,7 @@ public class ResultServiceImpl implements ResultService {
     }
 
     @Override
-    public void deleteResultById(Long id) {
+    public void deleteResultById(Integer id) {
         resultRepository.deleteById(id);
     }
 
