@@ -12,7 +12,7 @@ To get the development environment up and running, follow these steps:
 * **Maven:** Maven is needed to build and manage project dependencies.
 * **MySQL:** A MySQL database is required to store the application data. Recommend: Installing MySQL Workbench, a visual SQL editor making it easier to interact with and manage the databases.
 * **Git:** Git is used for version control.
-* **IDE:** An IDE like IntelliJ IDEA (Recommend) or VS Code with the **Spring Boot Extension Pack Plugin** *(which is the option that I have choosen)* to improve your development workflow.
+* **IDE:** An IDE like IntelliJ IDEA or VS Code with the **Spring Boot Extension Pack Plugin** *(which is the option that I have choosen)* to improve your development workflow.
 
 ### Steps
 
