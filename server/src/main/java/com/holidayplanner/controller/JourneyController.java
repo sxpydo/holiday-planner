@@ -34,12 +34,12 @@ public class JourneyController {
     }
 
     @GetMapping("/journey/{id}")
-    public Journey findJourneyById(@PathVariable Long id) {
+    public Journey findJourneyById(@PathVariable Integer id) {
         return journeyService.findJourneyById(id);
     }
 
     @DeleteMapping("/journey/{id}")
-    public String deleteJourney(@PathVariable Long id) {
+    public String deleteJourney(@PathVariable Integer id) {
         journeyService.deleteJourneyById(id);
         return "Journey with ID " + id + " has been deleted.";
     }
