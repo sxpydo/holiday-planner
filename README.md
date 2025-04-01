@@ -27,6 +27,7 @@ To get the development environment up and running, follow these steps:
 
     * Create a MySQL database named `holiday_planner`.
     * Create a MySQL user with the necessary permissions.
+    * The `src/main/resources/data.sql` and `src/main/resources/schema.sql` files contain database initialisation scripts.
     * Update the database connection properties in `src/main/resources/application.properties`:
 
         ```properties
@@ -84,17 +85,7 @@ To get the development environment up and running, follow these steps:
     ./mvnw.cmd test
     ```
 
-7.  **Dependencies:**
-
-    The project uses Spring Boot, Spring Data JPA, MySQL Connector/J, Jakarta Persistence and JUnit/Mockito for testing.
-
-8.  **Additional Information:**
-
-    * The project uses Spring Boot Data JPA to interact with the MySQL database.
-    * The `application.properties` file contains database connection and other application settings.
-    * The `src/main/resources/data.sql` and `src/main/resources/schema.sql` files contain database initialisation scripts.
-
-9.  **Troubleshooting:**
+7.  **Troubleshooting:**
 
     * Ensure your MySQL server is running on localhost:3306.
     * Verify that the database credentials in `application.properties` are correct.
