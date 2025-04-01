@@ -9,22 +9,22 @@ VALUES (1, 30, 'B', 'D'),
 (4, 40, 'D', 'A'),
 (2, 5 , 'B', 'D'),
 (9, 30, 'B', 'D');
+SELECT * FROM journeys;
 
 ALTER TABLE flights DROP INDEX unique_flight;
 ALTER TABLE flights ADD UNIQUE KEY unique_flight (departure_airport, destination_airport, distance);
 
 INSERT INTO flights (departure_airport, destination_airport, distance) VALUES
-('AB', 'B', 800),
-('BC', 'C', 900),
-('CD', 'D', 400),
-('DE', 'E', 400),
-('BF', 'F', 400),
-('CE', 'E', 300),
-('DE', 'E', 300),
-('EB', 'B', 600),
-('CE', 'E', 200),
-('DC', 'C', 700),
-('EB', 'B', 500),
-('FD', 'D', 200);
-UPDATE flights SET departure_airport = SUBSTRING(departure_airport,1,1) WHERE id <25;
+('A', 'B', 800),
+('B', 'C', 900),
+('C', 'D', 400),
+('D', 'E', 400),
+('B', 'F', 400),
+('C', 'E', 300),
+('D', 'E', 300),
+('E', 'B', 600),
+('C', 'E', 200),
+('D', 'C', 700),
+('E', 'B', 500),
+('F', 'D', 200);
 SELECT * FROM flights;
