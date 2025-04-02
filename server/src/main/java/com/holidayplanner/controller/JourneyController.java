@@ -1,10 +1,7 @@
 package com.holidayplanner.controller;
 
 import com.holidayplanner.model.Journey;
-import com.holidayplanner.model.Result;
 import com.holidayplanner.service.JourneyService;
-import com.holidayplanner.service.CalculationService;
-import com.holidayplanner.service.ResultService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,13 +15,6 @@ public class JourneyController {
 
     @Autowired
     private JourneyService journeyService;
-
-    @Autowired
-    private CalculationService calculationService;
-
-    @Autowired
-    private ResultService resultService;
-
 
     @GetMapping("/")
     public List<Journey> findAllJourneys() {
@@ -46,16 +36,5 @@ public class JourneyController {
     public String deleteJourney(@PathVariable Integer id) {
         journeyService.deleteJourneyById(id);
         return "Journey with ID " + id + " has been deleted.";
-    }
-
-    @PostMapping("/calculate")
-    public ResponseEntity<Result> calculateJourney(@RequestBody Journey journey) {
-        Result result = calculationService.calculateJourneyResult(journey);
-
-        // Save the journey and result
-        journeyService.saveJourney(journey);
-        resultService.saveResult(result); // Save the result
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
 }
