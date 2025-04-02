@@ -1,6 +1,6 @@
 # Holiday Planner REST API
 
-This repository contains a Spring Boot REST API for managing holiday planning data, including flights, journeys, and cost results.
+This repository contains a Spring Boot REST API for managing holiday planning data, including flights, journeys, and results.
 
 ## Development Setup
 
@@ -12,7 +12,7 @@ To get the development environment up and running, follow these steps:
 * **Maven:** Maven is needed to build and manage project dependencies.
 * **MySQL:** A MySQL database is required to store the application data. Recommend: Installing MySQL Workbench, a visual SQL editor making it easier to interact with and manage the databases.
 * **Git:** Git is used for version control.
-* **IDE:** An IDE like IntelliJ IDEA or VS Code with the **Spring Boot Extension Pack Plugin** *(which is the option that I have choosen)* to improve your development workflow.
+* **IDE:** VS Code with the **Spring Boot Extension Pack Plugin** to improve your development workflow.
 
 ### Steps
 
@@ -74,7 +74,6 @@ To get the development environment up and running, follow these steps:
                   "homeToAirportDistance": 12
                 }
                 ```
-        * `POST /api/journey/calculate`: Calculate a journey and store the journey and result.
         * `DELETE /api/journey/{id}`: Delete a journey.
 
 6.  **Testing:**
